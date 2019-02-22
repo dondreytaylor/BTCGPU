@@ -314,7 +314,7 @@ Clone the git repositories for BTCGPU and Gitian.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/BTCGPU/BTCGPU.git
+git clone https://github.com/dondreytaylor/BTCGPU.git
 git clone https://github.com/BTCGPU/gitian.sigs.git
 ```
 
@@ -468,9 +468,9 @@ When you execute `gsign` you will get an error from GPG, which can be ignored. C
 in `gitian.sigs` to your signing machine and do
 
 ```bash
-    gpg --detach-sign ${VERSION}-linux/${SIGNER}/bitcoin-gold-linux-build.assert
-    gpg --detach-sign ${VERSION}-win/${SIGNER}/bitcoin-gold-win-build.assert
-    gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/bitcoin-gold-osx-build.assert
+    gpg --detach-sign ${VERSION}-linux/${SIGNER}/bithereum-build-linux-build.assert
+    gpg --detach-sign ${VERSION}-win/${SIGNER}/bithereum-build-win-build.assert
+    gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/bithereum-build-osx-build.assert
 ```
 
 This will create the `.sig` files that can be committed together with the `.assert` files to assert your
