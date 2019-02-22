@@ -398,8 +398,8 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/akx20000a/BTCGPU.git
-COMMIT=d5522ed66a924a2d505fe45ed2487e741c6c0917
+URL=https://github.com/dondreytaylor/BTCGPU.git
+COMMIT=ee7b46b775f3bc5f9ad294814877a516e481cc0c
 ./bin/gbuild --commit BTCGPU=${COMMIT} --url BTCGPU=${URL} ../BTCGPU/contrib/gitian-descriptors/gitian-linux.yml
 ./bin/gbuild --commit BTCGPU=${COMMIT} --url BTCGPU=${URL} ../BTCGPU/contrib/gitian-descriptors/gitian-win.yml
 ./bin/gbuild --commit BTCGPU=${COMMIT} --url BTCGPU=${URL} ../BTCGPU/contrib/gitian-descriptors/gitian-osx.yml
