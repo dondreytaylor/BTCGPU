@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # Copyright (c) 2014-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2018 The Bitcoin Gold developers
+# Copyright (c) 2017-2018 The Bithereum developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test cases for Bitcoin Gold fork """
+"""Test cases for Bithereum fork """
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import *
 
 
-class BTGForkTest(BitcoinTestFramework):
+class BTHForkTest(BitcoinTestFramework):
 
     def __init__(self):
         super().__init__()
@@ -42,4 +42,4 @@ class BTGForkTest(BitcoinTestFramework):
 
 
 if __name__ == '__main__':
-    BTGForkTest().main()
+    BTHForkTest().main()

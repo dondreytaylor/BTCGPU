@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2016-2017 The Zcash developers
 // Copyright (c) 2018 The Bitcoin Private developers
-// Copyright (c) 2017-2018 The Bitcoin Gold developers
+// Copyright (c) 2017-2018 The Bithereum developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -74,7 +74,7 @@ public:
     unsigned int EquihashK() const { return nEquihashK; }
     unsigned int EquihashN(int height) const
     {
-        if(height >= consensus.BTGEquihashForkHeight) {
+        if(height >= consensus.BTHEquihashForkHeight) {
             return nEquihashNnew;
         } else {
             return nEquihashN;
@@ -82,15 +82,15 @@ public:
     }
     unsigned int EquihashK(int height) const
     {
-        if(height >= consensus.BTGEquihashForkHeight) {
+        if(height >= consensus.BTHEquihashForkHeight) {
             return nEquihashKnew;
         } else {
             return nEquihashK;
         }
     }
-    bool EquihashUseBTGSalt(int height) const
+    bool EquihashUseBTHSalt(int height) const
     {
-        return height >= consensus.BTGEquihashForkHeight;
+        return height >= consensus.BTHEquihashForkHeight;
     }
     unsigned int EquihashSolutionWidth(int height) const;
 

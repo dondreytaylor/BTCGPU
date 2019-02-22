@@ -34,7 +34,7 @@ Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
     git clone https://github.com/BTCGPU/gitian.sigs.git
-    git clone https://github.com/BTCGPU/bitcoingold-detached-sigs.git
+    git clone https://github.com/BTCGPU/bithereum-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/dondreytaylor/BTCGPU.git
 
@@ -108,7 +108,7 @@ NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from 
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Bitcoin Gold for Linux, Windows, and OS X:
+### Build and sign Bithereum for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
     ./bin/gbuild --num-make 2 --memory 3000 --commit BTCGPU=v${VERSION} ../BTCGPU/contrib/gitian-descriptors/gitian-linux.yml
@@ -182,7 +182,7 @@ Codesigner only: Sign the windows binaries:
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/bitcoingold-detached-sigs
+    cd ~/bithereum-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -195,7 +195,7 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [bitcoingold-detached-sigs](https://github.com/BTCGPU/bitcoingold-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [bithereum-detached-sigs](https://github.com/BTCGPU/bithereum-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -265,7 +265,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Announce the release:
 
-  - bitcoingold.org
+  - bithereum.org
 
   - Alert to the slack channel
 
@@ -273,6 +273,6 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/BTCGPU/BTCGPU/releases/new)
+  - Create a [new GitHub release](https://github.com/dondreytaylor/BTCGPU/releases/new)
 
   - Celebrate ¯\_(ツ)_/¯

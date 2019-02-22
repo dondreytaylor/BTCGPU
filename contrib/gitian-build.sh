@@ -17,9 +17,9 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/BTCGPU/BTCGPU
+url=https://github.com/dondreytaylor/BTCGPU
 gsigsUrl=https://github.com/BTCGPU/gitian.sigs
-detachUrl=https://github.com/BTCGPU/bitcoingold-detached-sigs
+detachUrl=https://github.com/BTCGPU/bithereum-detached-sigs
 proc=2
 mem=2000
 lxc=true
@@ -33,7 +33,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the bitcoin, gitian-builder, gitian.sigs, and bitcoingold-detached-sigs.
+Run this script from the directory containing the bitcoin, gitian-builder, gitian.sigs, and bithereum-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -41,9 +41,9 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the bitcoingold repository. Default is https://github.com/BTCGPU/BTCGPU
+-u|--url	Specify the URL of the bithereum repository. Default is https://github.com/dondreytaylor/BTCGPU
 -g|--gsigsUrl	Specify the URL of the gitian.sigs repository. Default is https://github.com/BTCGPU/gitian.sigs
--d|--detachUrl	Specify the URL of the bitcoingold-detached-sigs repository. Default is https://github.com/BTCGPU/bitcoingold-detached-sigs
+-d|--detachUrl	Specify the URL of the bithereum-detached-sigs repository. Default is https://github.com/BTCGPU/bithereum-detached-sigs
 -v|--verify 	Verify the Gitian build
 -b|--build	Do a Gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -267,7 +267,7 @@ then
 
     if [[ $detachUrl =~ $urlRegex ]]
     then
-    	git clone $detachUrl bitcoingold-detached-sigs
+    	git clone $detachUrl bithereum-detached-sigs
     fi
 
     git clone https://github.com/devrandom/gitian-builder.git

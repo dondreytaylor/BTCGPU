@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2016-2017 The Zcash developers
 // Copyright (c) 2018 The Bitcoin Private developers
-// Copyright (c) 2017-2018 The Bitcoin Gold developers
+// Copyright (c) 2017-2018 The Bithereum developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,30 +25,30 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 {
     assert(pindexLast != nullptr);
     int nHeight = pindexLast->nHeight + 1;
-    bool postfork = nHeight >= params.BTGHeight;
+    bool postfork = nHeight >= params.BTHHeight;
 
     if (postfork == false) {
         // Original Bitcoin PoW.
         return BitcoinGetNextWorkRequired(pindexLast, pblock, params);
     }
-    else if (nHeight < params.BTGHeight + params.BTGPremineWindow) {
+    else if (nHeight < params.BTHHeight + params.BTHPremineWindow) {
         // PoW limit for premine period.
         unsigned int nProofOfWorkLimit = UintToArith256(params.PowLimit(true)).GetCompact();
         return nProofOfWorkLimit;
     }
-    else if (nHeight < params.BTGHeight + params.BTGPremineWindow + params.nDigishieldAveragingWindow) {
+    else if (nHeight < params.BTHHeight + params.BTHPremineWindow + params.nDigishieldAveragingWindow) {
         // Pow limit start for warm-up period.
         return UintToArith256(params.powLimitStart).GetCompact();
     }
-    else if (nHeight < params.BTGZawyLWMAHeight) {
+    else if (nHeight < params.BTHZawyLWMAHeight) {
         // Regular Digishield v3.
         return DigishieldGetNextWorkRequired(pindexLast, pblock, params);
-    } else if (nHeight < params.BTGEquihashForkHeight) {
+    } else if (nHeight < params.BTHEquihashForkHeight) {
         // Zawy's LWMA (testnet launch).
         return LwmaGetNextWorkRequired(pindexLast, pblock, params);
-    } else if (nHeight < params.BTGEquihashForkHeight + params.nZawyLwmaAveragingWindow) {
+    } else if (nHeight < params.BTHEquihashForkHeight + params.nZawyLwmaAveragingWindow) {
         // Reduce the difficulty of the first forked block by 100x and keep it for N blocks.
-        if (nHeight == params.BTGEquihashForkHeight) {
+        if (nHeight == params.BTHEquihashForkHeight) {
             return ReduceDifficultyBy(pindexLast, 100, params);
         } else {
             return pindexLast->nBits;
@@ -251,7 +251,7 @@ bool CheckEquihashSolution(const CBlockHeader *pblock, const CChainParams& param
 
     // Hash state
     crypto_generichash_blake2b_state state;
-    EhInitialiseState(n, k, state, params.EquihashUseBTGSalt(height));
+    EhInitialiseState(n, k, state, params.EquihashUseBTHSalt(height));
 
     // I = the block header minus nonce and solution.
     CEquihashInput I{*pblock};

@@ -2,7 +2,7 @@
 
 This issue tracker is only for technical issues related to bithereum-build.
 
-For reporting security issues, please see the official [Bitcoin Gold website](https://bitcoingold.org/).
+For reporting security issues, please see the official [Bithereum website](https://bithereum.org/).
 
 ### Describe the issue
 

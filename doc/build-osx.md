@@ -24,12 +24,12 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-Build Bitcoin Gold
+Build Bithereum
 ------------------------
 
-1. Clone the Bitcoin Gold source code and cd into `BTCGPU`
+1. Clone the Bithereum source code and cd into `BTCGPU`
 
-        git clone https://github.com/BTCGPU/BTCGPU
+        git clone https://github.com/dondreytaylor/BTCGPU
         cd BTCGPU
 
 2.  Build BTCGPU:
@@ -53,15 +53,15 @@ Build Bitcoin Gold
 Running
 -------
 
-Bitcoin Gold is now available at `./src/bgoldd`
+Bithereum is now available at `./src/bethd`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=bitcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "$HOME/Library/Application Support/BitcoinGold/bitcoingold.conf"
+    echo -e "rpcuser=bitcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "$HOME/Library/Application Support/BitcoinGold/bithereum.conf"
 
-    chmod 600 "$HOME/Library/Application Support/BitcoinGold/bitcoingold.conf"
+    chmod 600 "$HOME/Library/Application Support/BitcoinGold/bithereum.conf"
 
-The first time you run bgoldd, it will start downloading the blockchain. This process could take several hours.
+The first time you run bethd, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
@@ -70,9 +70,9 @@ You can monitor the download process by looking at the debug.log file:
 Other commands:
 -------
 
-    ./src/bgoldd -daemon # Starts the bitcoin daemon.
-    ./src/bgold-cli --help # Outputs a list of command-line options.
-    ./src/bgold-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/bethd -daemon # Starts the bitcoin daemon.
+    ./src/beth-cli --help # Outputs a list of command-line options.
+    ./src/beth-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
